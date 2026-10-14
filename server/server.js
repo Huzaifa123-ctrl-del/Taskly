@@ -16,6 +16,9 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/messages", messageRoutes);
 
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));
+app.get("/", (req, res) => {
+  res.json({ message: "Taskly API is running" });
+});
 
 app.use((err, req, res, next) => {
   console.error(err);
